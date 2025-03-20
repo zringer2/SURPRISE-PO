@@ -130,7 +130,7 @@ body {
   transform: translate(-50%, -100%);
   width: 8vmin;
   height: 8vmin;
-  background-color: #6bf0ff;
+  background-color: #ff6bb3; /* Changed from #6bf0ff */
   filter: blur(10vmin);
 }
 .flower__leaf {
@@ -140,8 +140,8 @@ body {
   width: 8vmin;
   height: 11vmin;
   border-radius: 51% 49% 47% 53%/44% 45% 55% 69%;
-  background-color: #a7ffee;
-  background-image: linear-gradient(to top, #54b8aa, #a7ffee);
+  background-color: #ffb6e1; /* Changed from #a7ffee */
+  background-image: linear-gradient(to top, #ff69b4, #ffb6e1); /* Changed from #54b8aa, #a7ffee */
   transform-origin: bottom center;
   opacity: 0.9;
   box-shadow: inset 0 0 2vmin rgba(255, 255, 255, 0.5);
@@ -161,7 +161,7 @@ body {
   transform-origin: bottom left;
   border-radius: 4vmin 10vmin 4vmin 4vmin;
   transform: translate(0%, 18%) rotateX(70deg) rotate(-43deg);
-  background-image: linear-gradient(to top, #39c6d6, #a7ffee);
+  background-image: linear-gradient(to top, #ff69b4, #ffb6e1); /* Changed from #39c6d6, #a7ffee */
   z-index: 1;
   opacity: 0.8;
 }
@@ -188,7 +188,8 @@ body {
 .flower__line {
   height: 55vmin;
   width: 1.5vmin;
-  background-image: linear-gradient(to left, rgba(0, 0, 0, 0.2), transparent, rgba(255, 255, 255, 0.2)), linear-gradient(to top, transparent 10%, #14757a, #39c6d6);
+  background-image: linear-gradient(to left, rgba(0, 0, 0, 0.2), transparent, rgba(255, 255, 255, 0.2)), 
+    linear-gradient(to top, transparent 10%, #c74b80, #ff69b4); /* Changed from #14757a, #39c6d6 */
   box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.5);
   animation: grow-flower-tree 4s backwards;
 }
@@ -202,7 +203,7 @@ body {
   height: var(--h);
   border-top-right-radius: var(--h);
   border-bottom-left-radius: var(--h);
-  background-image: linear-gradient(to top, rgba(20, 117, 122, 0.4), #39c6d6);
+  background-image: linear-gradient(to top, rgba(199, 75, 128, 0.4), #ff69b4); /* Changed from rgba(20, 117, 122, 0.4), #39c6d6 */
 }
 .flower__line__leaf--1 {
   transform: rotate(70deg) rotateY(30deg);
@@ -624,7 +625,8 @@ body {
   height: 10vmin;
   border-radius: 100% 0% 0% 100%/100% 100% 0% 0%;
   box-shadow: inset 0 2px 1vmin hsla(184, 97%, 58%, 0.2);
-  background-image: linear-gradient(to bottom left, transparent, var(--dark-color)), linear-gradient(to bottom right, #159faa 50%, transparent 50%, transparent);
+  background-image: linear-gradient(to bottom left, transparent, var(--dark-color)), 
+    linear-gradient(to bottom right, #ff69b4 50%, transparent 50%, transparent); /* Changed from #159faa */
   -webkit-mask-image: linear-gradient(to bottom right, #159faa 50%, transparent 50%, transparent);
   mask-image: linear-gradient(to bottom right, #159faa 50%, transparent 50%, transparent);
 }
@@ -1033,4 +1035,69 @@ body {
     }
 }
 
-/*# sourceMappingURL=style.css.map */
+/* Replace the existing media queries with these */
+@media screen and (max-width: 768px) {
+    body {
+        padding: 0;
+        min-height: 100vh;
+        min-height: -webkit-fill-available;
+        align-items: center;
+        overflow: hidden;
+        perspective: 800px;
+    }
+
+    .flowers {
+        position: relative;
+        transform: scale(0.7);
+        margin-bottom: -20vh;
+    }
+
+    .note {
+        font-size: 18px;
+        padding: 10px 20px;
+        width: 90%;
+        max-width: 300px;
+        top: 20px;
+    }
+
+    .flower--1 {
+        left: -20vmin;
+    }
+
+    .flower--2 {
+        left: 0;
+    }
+
+    .flower--3 {
+        left: 20vmin;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .flowers {
+        transform: scale(0.5);
+        margin-bottom: -30vh;
+    }
+
+    .flower--1 {
+        left: -15vmin;
+    }
+
+    .flower--2 {
+        left: 0;
+    }
+
+    .flower--3 {
+        left: 15vmin;
+    }
+
+    .note {
+        font-size: 16px;
+        padding: 8px 16px;
+    }
+}
+
+/* Fix iOS height issues */
+html {
+    height: -webkit-fill-available;
+}
